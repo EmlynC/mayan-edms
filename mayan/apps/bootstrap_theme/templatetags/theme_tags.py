@@ -78,3 +78,33 @@ def get_bootstrap_theme_setting(parser, token):
 @register.filter
 def highlight(text, word):
     return mark_safe(unicode(text).replace(word, mark_safe('<mark>%s</mark>' % word)))
+
+@register.filter
+def convert_to_glyphicon(famfam):
+    """
+    Given a famfam name return a glyphicon equivalent
+    :param famfam:
+    :return:
+    """
+
+    if famfam is '':
+        return ''
+
+    mapper = {
+        'basket': 'shopping-cart',
+        'cog': 'cog',
+        'folder_user': 'folder-open',
+        'house': 'home',
+        'information': 'info-sign',
+        'page':  'file',
+        'tab': 'credit-card',
+        'tag_blue': 'tags',
+        'user': 'user',
+        'wrench': 'wrench',
+        'zoom':  'search',
+    }
+
+    if famfam in mapper.keys():
+        return mapper[famfam]
+    else:
+        return ''
