@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.comments',
     'django.contrib.staticfiles',
+    # 'debug_toolbar',
     # 3rd party
     'south',
     'rest_framework_swagger',
@@ -61,7 +62,10 @@ INSTALLED_APPS = (
     'smart_settings',
     'navigation',
     'lock_manager',
-    'web_theme',
+    # Themes
+    'bootstrap3',
+    'bootstrap_theme',
+    #'web_theme',
     # pagination needs to go after web_theme so that the pagination template
     # if found
     'pagination',
