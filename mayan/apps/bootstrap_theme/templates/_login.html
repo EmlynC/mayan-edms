@@ -1,0 +1,15 @@
+{% extends 'login.html' %}
+
+{% load i18n %}
+
+{% load project_tags %}
+
+{% block html_title %}{% project_name %} :: {% trans 'Login' %}{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        input#id_email { width: 100%; }
+    </style>
+{% endblock %}
+
+{% block project_name %}{% project_name %}{% endblock %}
