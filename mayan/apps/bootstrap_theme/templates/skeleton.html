@@ -36,7 +36,7 @@
         {% bootstrap_javascript %}
 
         {# ... less compiler - development only! #}
-        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.js" type="text/javascript"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js" type="text/javascript"></script>
 
 
         {# ... override for individual page scripts #}
@@ -45,11 +45,9 @@
 
     </head>
     <body>
-        <div id="container">
+        <div class="container">
             {% if view_type == 'plain' %}
-                <div id="box">
-                    {% block content_plain %}{% endblock %}
-                </div>
+                {% block content_plain %}{% endblock %}
             {% else %}
               {% if not bootstrap_theme_hide_menus %}
                 <header class="navbar navbar-static-top" id="top" role="banner">
