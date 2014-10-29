@@ -6,10 +6,18 @@
 @import "../packages/bootstrap/less/variables.less";
 @import "../packages/bootstrap/less/mixins.less";
 
-
+// Navbar
 .navbar-toggle {
   .icon-bar {
     background-color: @brand-primary;
+  }
+}
+
+// Glyphicons
+.glyphicon {
+  &::before {
+    left: -4px;
+    position: relative;
   }
 }
 
