@@ -1,0 +1,6 @@
+To create a new theme, you must include either your own variables.less
+or bootstraps variables.less and the bootstrap mixins. Place your theme
+code below that and then append the import for dependencies.less.
+
+The theme folder expects there to be a theme.less file and a variables.less
+file, anything else is up to you.
