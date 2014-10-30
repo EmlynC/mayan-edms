@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load project_tags %}
+{% load staticfiles %}
+
+{% block main_div_class %}col-md-12{% endblock %}
+
+{% block main_content %}
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">{% project_name %}</h1>
+      </div>
+      <div class="panel-body">
+        <img class="center-block" src="{% static 'images/1068504_92921456.jpg' %}" />
+      </div>
+  </div>
+{% endblock %}
+
+{# leave side bar blank - no sidebar #}
+{% block sidebar %}
+{% endblock %}

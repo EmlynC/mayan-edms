@@ -8,7 +8,7 @@ register_settings(
     namespace=u'ocr',
     module=u'ocr.conf.settings',
     settings=[
-        {'name': u'TESSERACT_PATH', 'global_name': u'OCR_TESSERACT_PATH', 'default': u'/usr/bin/tesseract', 'exists': True},
+        {'name': u'TESSERACT_PATH', 'global_name': u'OCR_TESSERACT_PATH', 'default': u'/opt/local/bin/tesseract', 'exists': True},
         {'name': u'LANGUAGE', 'global_name': u'OCR_LANGUAGE', 'default': u'eng'},
         {'name': u'REPLICATION_DELAY', 'global_name': u'OCR_REPLICATION_DELAY', 'default': 0, 'description': _(u'Amount of seconds to delay OCR of documents to allow for the node\'s storage replication overhead.')},
         {'name': u'NODE_CONCURRENT_EXECUTION', 'global_name': u'OCR_NODE_CONCURRENT_EXECUTION', 'default': 1, 'description': _(u'Maximum amount of concurrent document OCRs a node can perform.')},
