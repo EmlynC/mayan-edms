@@ -1,14 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'skeleton.html' %}
 
 {% load i18n %}
 
 {% block title %} :: {% blocktrans %}Insufficient permissions{% endblocktrans %}{% endblock %}
 
-{% block content %}
-    <div class="content">
-        <h2 class="title">{% blocktrans %}Insufficient permissions{% endblocktrans %}</h2>
-        <div class="inner">
-            <p>{% blocktrans %}You don't have enough permissions for this operation.{% endblocktrans %}</p>
-        </div>
+{% block body_content %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">{% blocktrans %}Insufficient permissions{% endblocktrans %}</h2>
+      </div>
+      <div class="panel-body">
+        {% blocktrans %}You don't have enough permissions for this operation.{% endblocktrans %}
+      </div>
     </div>
 {% endblock %}

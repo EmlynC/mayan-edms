@@ -1,19 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-<head>
-    <title>Page unavailable</title>
-</head>
-<body>
-    <h1>Page unavailable</h1>
+{% extends 'skeleton.html' %}
+{% load i18n %}
 
-    <p>Sorry, but the requested page is unavailable due to a server problem.</p>
+{% block body_content %}
 
-    <p>Administrators have been notified, so check back later.</p>
-    {% if request.sentry.id %}
-        <p>If you need assistance, you may reference this error as
-        <strong>{{ request.sentry.id }}</strong>.</p>
-    {% endif %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{% blocktrans %}Page unavailable{% endblocktrans %}</h3>
+    </div>
+    <div class="panel-body">
+      <p>{% blocktrans %}Sorry, but the requested page is unavailable due to a server problem.{% endblocktrans %}</p>
 
-</body>
-</html>
+      <p>{% blocktrans %}Administrators have been notified, so check back later.{% endblocktrans %}</p>
+      {% if request.sentry.id %}
+        <p>{% blocktrans %}If you need assistance, you may reference this error as{% endblocktrans %}
+          <strong>{{ request.sentry.id }}</strong>.</p>
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}
