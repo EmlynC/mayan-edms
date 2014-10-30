@@ -87,6 +87,7 @@ def convert_to_glyphicon(famfam):
     :return:
     """
 
+    # let the empties forward to default
     if famfam is '':
         return ''
 
@@ -102,6 +103,11 @@ def convert_to_glyphicon(famfam):
         'user': 'user',
         'wrench': 'wrench',
         'zoom':  'search',
+        'page_add': 'plus',
+        'tag_blue_add': 'plus',
+        'telephone': 'earphone',
+        'script': 'book',
+
     }
 
     if famfam in mapper.keys():

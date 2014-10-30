@@ -7,7 +7,7 @@
 
 {% block title %} :: {% blocktrans with title as title %}List of {{ title }}{% endblocktrans %}{% endblock %}
 
-{% block sidebar %}
+{% block sidebar_content %}
     {% for subtemplate in sidebar_subtemplates_list %}
         {% if subtemplate.form %}
             {% render_subtemplate subtemplate.name subtemplate.context as rendered_subtemplate %}
@@ -22,7 +22,7 @@
 
 {% endblock %}
 
-{% block content %}
+{% block main_content %}
     {% include 'generic_list_subtemplate.html' %}
 {% endblock %}
 
