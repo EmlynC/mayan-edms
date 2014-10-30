@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<p>
+  {% blocktrans %}
+  Open source, Django based electronic document manager with custom
+  metadata, indexing, tagging, file serving integration, digital signature
+  support and OCR capabilities
+  {% endblocktrans %}
+</p>
+
+<dl>
+  <dt>Website</dt>
+  <dd><span class="glyphicon glyphicon-globe"></span><a href="http://www.mayan-edms.com">http://www.mayan-edms.com</a></dd>
+  <dt>Docs</dt>
+  <dd><span class="glyphicon glyphicon-book"></span><a href="http://readthedocs.org/docs/mayan/en/latest/">http://mayan.readthedocs.org/</a></dd>
+  <dt>Github</dt>
+  <dd><span class="glyphicon glyphicon-wrench"></span><a href="http://readthedocs.org/docs/mayan/en/latest/">http://mayan.readthedocs.org/</a></dd>
+  <dt>Bug tracking and issues</dt>
+  <dd><span class="glyphicon glyphicon-wrench"></span><a href="http://readthedocs.org/docs/mayan/en/latest/">http://mayan.readthedocs.org/</a></dd>
+  <dt>License</dt>
+  <dd><span class="glyphicon glyphicon-briefcase"></span>{% trans 'Released under the Apache 2.0 License' %}</dd>
+</dl>
+
+<div class="center-block">
+  <img src="{% static 'images/mayan_logo_landscape_rough.png' %}"/>
+</div>
