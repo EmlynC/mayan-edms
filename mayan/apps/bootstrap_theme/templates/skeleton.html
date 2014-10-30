@@ -6,145 +6,75 @@
 
 {% get_theme as bootstrap_theme %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>{% block html_title %}{% endblock %}</title>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <title>{% block html_title %}{% endblock %}</title>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="Content-Language" content="{{ LANGUAGE_CODE }}" />
-        {% block meta %}
-        {% endblock %}
+  <meta charset=utf-8" />
 
-        {# CSS #}
+  {# for mobile rendering and zoom support #}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {# ... Bootstrap #}
-        {% bootstrap_css %}
+  {% block meta %}
+  {% endblock %}
 
-        {# ... project specific styles #}
-        <link rel="stylesheet/less" type="text/css" href="/static/less/theme_default.less" />
+  {# CSS #}
 
-        {# ... override for individual page styles #}
-        {% block styles %}
-        {% endblock %}
+{#  {% if debug %}#}
+    <link rel="stylesheet/less" type="text/css" href="{% static 'themes/cosmo/theme.less' %}" />
+{#  {% else %}#}
+{#    {% compress css %}#}
+{#    <link rel="stylesheet/less" type="text/less" media="all" href="{% static '/themes/cosmo/theme.less' %}" />#}
+{#    {% endcompress %}#}
+{#  {% endif %}#}
 
-        {# JavaScript #}
+  {# ... override for individual page styles #}
+  {% block styles %}
+  {% endblock %}
 
-        {# ... jQuery and plugins #}
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+  {# JavaScript #}
 
-        {# ... twitter bootstrap #}
-        {% bootstrap_javascript %}
+  {# ... override for individual page scripts #}
+  {% block javascript_head %}
+  {% endblock %}
 
-        {# ... less compiler - development only! #}
-        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
 
+  {% block body_content %}
+  {% endblock %}
 
-        {# ... override for individual page scripts #}
-        {% block javascript_head %}
-        {% endblock %}
+  {% block footer %}
+    <div id="footer">
+      <p><small>{% trans 'Copyright &copy; 2011 Roberto Rosario.' %}</small></p>
+    </div>
+  {% endblock %}
 
-    </head>
-    <body>
-        <div class="container">
-            {% if view_type == 'plain' %}
-                {% block content_plain %}{% endblock %}
-            {% else %}
-              {% if not bootstrap_theme_hide_menus %}
-                <header class="navbar navbar-static-top" id="top" role="banner">
-                  <div class="container">
-                    <div class="navbar-header">
-                      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <a href="{% url 'home' %}" class="navbar-brand">{% block bootstrap_theme_project_name %}{% endblock %}</a></h1></a>
-                    </div>
-                    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                      <ul class="nav navbar-nav">
-                        {% block bootstrap_theme_main_navigation %}{% endblock %}
-                        {% block bootstrap_theme_user_navigation %}{% endblock %}
-                      </ul>
-{#                      <ul class="nav navbar-nav navbar-right">#}
-{#                        #}
-{#                      </ul>#}
-                    </nav>
-                  </div>
-                </header>
-                {% endif %}
-                <div id="wrapper" class="wat-cf">
-                    <div id="main">
-                        {% if messages %}
-                            <div class="inner">
-                                <div class="flash">
-                                    {% for message in messages %}
-                                        <div class="animated fadeInDown message{% if message.tags %}{% if 'success' in message.tags %} notice{% endif %} {{ message.tags }}{% else %} notice{% endif %}">
-                                            <p>
-                                                {{ message }}
-                                                <span class="dismiss-all"><a title="{% trans 'dismiss all notifications' %}">[{% trans 'close all' %}]</a></span>
-                                                <span class="dismiss"><a title="{% trans 'dismiss this notification' %}">[{% trans 'close' %}]</a></span>
-                                            </p>
-                                         </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% endif %}
-                        {% block bootstrap_theme_messages %}{% endblock %}
-                        <div class="block" id="block-text">
-                          {% block bootstrap_theme_secondary_navigation %}{% endblock %}
-                          {% block bootstrap_theme_content %}{% endblock %}
-                        </div>
+</div>
 
-                        {% block bootstrap_theme_footer %}{% endblock %}
-                    </div>
-                   <div id="sidebar">
-                        {% block bootstrap_theme_sidebar %}{% endblock %}
-                    </div>
-                </div>
-            {% endif %}
-        </div>
+{# ... jQuery and plugins #}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
-        {% compress js %}
-        <script type="text/javascript" charset="utf-8" src="{% static 'packages/jquery-2.1.1.min.js' %}"></script>
+{#<script type="text/javascript" src="{% static '/packages/jquery.scrollview.js' %}"></script>#}
+{#<script type="text/javascript" src="{% static '/packages/jquery_lazyload-master/jquery.lazyload.min.js' %}"></script>#}
+{#<script type="text/javascript" src="{% static '/packages/jquery.scrollstop.js' %}"></script>#}
+{#<script type="text/javascript" src="{% static '/packages/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js' %}"></script>#}
+{#<script type="text/javascript" src="{% static '/packages/fancyapps-fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js' %}"></script>#}
 
-        {% if enable_scroll_js %}
-        <script type="text/javascript" charset="utf-8" src="{% static 'packages/jquery.scrollTo.js' %}"></script>
-        <script type="text/javascript" charset="utf-8" src="{% static 'packages/jquery.localscroll.js' %}"></script>
-        {% endif %}
+{# ... twitter bootstrap #}
+{% bootstrap_javascript %}
 
-        <script type="text/javascript">
-            function dismissAlert($element){
-                $element.parent().parent().addClass('fadeOutUp').fadeOut('slow');
-            }
+{# ... less compiler - development only! #}
+{#{% if debug %}#}
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js" type="text/javascript"></script>
+{#{% endif %}#}
 
-            $(document).ready(function() {
-                var dismissTimer = setInterval(function(){
-                    $('.success').each(function(){
-                        dismissAlert($(this).find('.dismiss'));
-                    });
+{# application specific javascript #}
+<script src="{% static 'javascripts/app.js' %}" type="text/javascript"></script>
 
-                    clearInterval(dismissTimer);
-                }, 2500);
+{% block javascript_foot %}
+{% endblock %}
 
-                $('.dismiss').click(function(){
-                    dismissAlert($(this));
-                    return false;
-                });
-                $('.dismiss-all').click(function(){
-                    $('.message').each(function(){
-                        dismissAlert($(this).parent().find('.dismiss'));
-                    });
-                    return false;
-                });
-                $('th input:checkbox').click(function(e) {
-                    var table = $(e.target).closest('table');
-                    $('td input:checkbox', table).attr('checked', e.target.checked);
-                });
-            });
-        </script>
-        {% endcompress %}
-        {% block javascript_foot %}
-        {% endblock %}
-    </body>
+</body>
 </html>
