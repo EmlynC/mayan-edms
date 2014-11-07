@@ -163,7 +163,9 @@
             {% copy_variable list_object_variable_name as "navigation_object_name" %}
           {% endif %}
           <td class="last">
-            {% object_navigation_template %}
+            <ul class="list-inline list-unstyled">
+              {% object_navigation_template %}
+            </ul>
           </td>
         {% endif %}
       </tr>
