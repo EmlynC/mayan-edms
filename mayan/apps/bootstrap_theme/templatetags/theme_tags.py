@@ -107,7 +107,17 @@ def convert_to_glyphicon(famfam):
         'tag_blue_add': 'plus',
         'telephone': 'earphone',
         'script': 'book',
-
+        'xhtml_add': 'plus',
+        'xhtml_go': 'pencil',
+        'xhtml_go': 'pencil',
+        'xhtml_delete': 'minus',
+        'hourglass_add': 'tasks',
+        'tag_blue_add': 'plus',
+        'tag_blue_delete': 'minus',
+        'folder_add': 'plus',
+        'page_paintbrush':'remove',
+        'page_delete':'trash',
+        'page_save': 'download',
     }
 
     if famfam in mapper.keys():
