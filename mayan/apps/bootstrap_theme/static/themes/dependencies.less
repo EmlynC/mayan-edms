@@ -59,13 +59,28 @@
 
 // Images responsive by default
 img {
-      display: block;
-      width: 100% \9; // IE 9 hack
-      max-width: 100%;
-      height: auto;
+    display: block;
+    width: 100% \9; // IE 9 hack
+    max-width: 100%;
+    height: auto;
 }
 
 // toolbars all have a margin
 .btn-toobar {
   padding-bottom: 20px;
+}
+
+// basic shape for a tag
+.tags {
+  li {
+      max-width: 7em;
+      max-height: 2.2em;
+
+      padding: 5px;
+
+      border: 1px solid #808080;
+      border-radius: 25px;
+
+      overflow: hidden;
+  }
 }
