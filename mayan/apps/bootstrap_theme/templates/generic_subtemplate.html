@@ -1,0 +1,18 @@
+{% if side_bar %}
+  <div class="panel panel-default">
+    <div class="panel-heading"></div>
+      <h3>{{ title|capfirst }}</h3>
+    </div>
+    <div class="panel-body">
+  {% endif %}
+
+  {% if content %}
+      <p>{{ content|safe }}</p>
+  {% endif %}
+
+  {% for paragraph in paragraphs %}
+      <p>{{ paragraph|safe }}</p>
+  {% endfor %}
+
+  </div>
+</div>

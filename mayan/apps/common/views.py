@@ -215,7 +215,7 @@ def login_view(request):
         kwargs['authentication_form'] = EmailAuthenticationForm
 
     if not request.user.is_authenticated():
-        context = {'web_theme_view_type': 'plain'}
+        context = {'view_type': 'plain'}
     else:
         context = {}
 

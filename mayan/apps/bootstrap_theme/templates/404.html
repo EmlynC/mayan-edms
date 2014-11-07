@@ -1,0 +1,16 @@
+{% extends 'skeleton.html' %}
+
+{% load i18n %}
+
+{% block title %} :: {% blocktrans %}Page not found{% endblocktrans %}{% endblock %}
+
+{% block body_content %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">{% blocktrans %}Page not found{% endblocktrans %}</h2>
+      </div>
+      <div class="panel-body">
+        {% blocktrans %}Sorry, but the requested page could not be found.{% endblocktrans %}
+      </div>
+    </div>
+{% endblock %}

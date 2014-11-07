@@ -44,6 +44,9 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.comments',
     'django.contrib.staticfiles',
+    # Themes
+    'bootstrap3',
+    'bootstrap_theme',
     # 3rd party
     'south',
     'rest_framework_swagger',
@@ -61,7 +64,7 @@ INSTALLED_APPS = (
     'smart_settings',
     'navigation',
     'lock_manager',
-    'web_theme',
+    #'web_theme',
     # pagination needs to go after web_theme so that the pagination template
     # if found
     'pagination',
@@ -96,6 +99,7 @@ INSTALLED_APPS = (
     'checkouts',
     'bootstrap',
     'registration',
+    # 'debug_toolbar',
     # Has to be last so the other apps can register it's signals
     'signaler'
 )
@@ -178,13 +182,15 @@ LANGUAGES = (
 
 SITE_ID = 1
 
-STATIC_URL = '/static/'
 
 # Custom settings section
 
 sys.path.append(os.path.join(BASE_DIR, 'mayan', 'apps'))
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'mayan', 'media', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'mayan', 'media', 'static/')
+STATIC_URL = STATIC_ROOT
+
+CACHE = "cache"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -196,6 +202,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
@@ -211,7 +218,12 @@ STATICFILES_FINDERS = (
 # --------- Django compressor -------------
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = True
+
+COMPRESS_PRECOMPILERS = (
+   ('text/less', 'lessc {infile} {outfile}'),
+)
+
 # ---------- Django sendfile --------------
 SENDFILE_BACKEND = 'sendfile.backends.simple'
 # --------- Web theme ---------------

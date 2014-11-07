@@ -1,0 +1,14 @@
+{% load i18n %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>{% trans "Help" %}</h4>
+  </div>
+  <div class="panel-body">
+    <p>
+      {% blocktrans %}
+        Enter the desired search keywords separated by space.
+        Only the top {{ search_results_limit }} results will be available.
+      {% endblocktrans %}
+    </p>
+  </div>
+</div>

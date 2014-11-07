@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load styling %}
+{% load bootstrap3 %}
+
+{{ form.media|safe }}
+
+{% if form.non_field_errors %}
+    <div class="flash">
+        {% for value in form.non_field_errors %}
+            <div class="message error">
+                <p>{{ value }}</p>
+            </div>
+      {% endfor %}
+  </div>
+{% endif %}
+
+{% bootstrap_form form %}
