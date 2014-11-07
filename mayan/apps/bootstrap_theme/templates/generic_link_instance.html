@@ -16,9 +16,9 @@
     {% if link.error %} -
 
     {{ link.error }}{% endif %}{% if link.active and not hide_active_anchor %}
-    <span class="glyphicon active glyphicon-resultset_previous"></span>{% endif %}
+    <span class="glyphicon active glyphicon-list"></span>{% endif %}
 
-  </a>{% if horizontal %}{% if not forloop.last %} | {% endif %}{% endif %}
+  </a>{% if horizontal %}{% if not forloop.last %}{% endif %}{% endif %}
 {% else %}
   <a class="{{ link.class }}"
      href="{{ link.url }}">{% if link.famfam and not disable_icons %}
@@ -26,5 +26,5 @@
     </span>{% endif %}{{ link.text|capfirst }}{% if link.error %} -
     {{ link.error }}{% endif %}{% if link.active and not hide_active_anchor %}
     <span class="glyphicon active glyphicon-resultset_previous"></span>{% endif %}
-  </a>{% if horizontal %}{% if not forloop.last %} | {% endif %}{% endif %}
+  </a>{% if horizontal %}{% if not forloop.last %}{% endif %}{% endif %}
 {% endif %}
