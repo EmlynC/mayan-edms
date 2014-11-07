@@ -13,7 +13,7 @@ def get_tags_inline_widget(document):
         tags_template.append(u'<div class="tc">')
 
         for tag in document.tags.all():
-            tags_template.append(u'<ul class="tags"><li style="background: %s;">%s</li></ul>' % (tag.properties.get().get_color_code(), escape(tag.name)))
+            tags_template.append(u'<ul class="tags list-unstyled"><li style="background: %s;">%s</li></ul>' % (tag.properties.get().get_color_code(), escape(tag.name)))
 
         tags_template.append(u'<div style="clear:both;"></div>')
         tags_template.append(u'</div>')
@@ -28,7 +28,7 @@ def get_tags_inline_widget_simple(document):
 
     tag_count = document.tags.count()
     if tag_count:
-        tags_template.append('<ul class="tags">')
+        tags_template.append('<ul class="tags list-unstyled">')
         for tag in document.tags.all():
             tags_template.append(get_single_tag_template(tag))
 
@@ -39,7 +39,7 @@ def get_tags_inline_widget_simple(document):
 
 def single_tag_widget(tag):
     tags_template = []
-    tags_template.append('<ul class="tags">')
+    tags_template.append('<ul class="tags list-unstyled">')
     tags_template.append(get_single_tag_template(tag))
     tags_template.append('</ul>')
     return mark_safe(u''.join(tags_template))
