@@ -19,14 +19,13 @@
   {% endblock %}
 
   {# CSS #}
-
-{#  {% if debug %}#}
+  {% if debug %}
     <link rel="stylesheet/less" type="text/css" href="{% static 'themes/cosmo/theme.less' %}" />
-{#  {% else %}#}
-{#    {% compress css %}#}
-{#    <link rel="stylesheet/less" type="text/less" media="all" href="{% static '/themes/cosmo/theme.less' %}" />#}
-{#    {% endcompress %}#}
-{#  {% endif %}#}
+  {% else %}
+    {% compress css %}
+    <link rel="stylesheet/less" type="text/less" media="all" href="{% static '/themes/cosmo/theme.less' %}" />
+    {% endcompress %}
+  {% endif %}
 
   {# ... override for individual page styles #}
   {% block styles %}
@@ -40,13 +39,13 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
 
   {% block body_content %}
   {% endblock %}
 
   {% block footer %}
-    <div id="footer">
+    <div id="footer" class="col-md-12">
       <p><small>{% trans 'Copyright &copy; 2011 Roberto Rosario.' %}</small></p>
     </div>
   {% endblock %}
