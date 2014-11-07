@@ -121,7 +121,6 @@
 
 {% if not bootstrap_theme_hide_menus %}
       <header class="navbar navbar-default" id="top" role="banner">
-        <div class="container">
           <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -148,8 +147,9 @@
                   {% endwith %}
                 {% endfor %}
               {% endblock %}
-
+              </ul>
               {% block navigation_user %}
+              <ul class="nav navbar-nav navbar-right">
                 <li>
                   <a href="{% url 'current_user_details' %}" title="{% trans 'User details' %}"><span class="glyphicon glyphicon-user"></span>{{ user.get_full_name|default:user }}</a>
                 </li>
@@ -162,15 +162,14 @@
                        {% if not user.is_authenticated %}{% trans 'Login' %}{% else %}{% trans 'Logout' %}{% endif %}
                   </a>
                 </li>
+              </ul>
               {% endblock %}
-            </ul>
           </nav>
-        </div>
       </header>
     {% endif %}
 
     {% block main %}
-      <div id="main" class="{% block main_div_class %}col-md-8 col-sm-8{% endblock %}">
+      <div id="main" class="{% block main_div_class %}col-lg-10 col-md-8 col-sm-8{% endblock %}">
 
         {% if messages %}
         <div class="row">
@@ -232,7 +231,7 @@
     {% endblock %}
 
 
-      <div id="sidebar" class="{% block sidebar_div_class %}col-md-4 col-sm-4{% endblock %}">
+      <div id="sidebar" class="{% block sidebar_div_class %}col-lg-2 col-md-4 col-sm-4{% endblock %}">
           {% get_main_setting "SIDE_BAR_SEARCH" as side_bar_search %}
           {% if side_bar_search and not bootstrap_theme_hide_menus %}
             {% with 'true' as side_bar %}
@@ -248,13 +247,17 @@
 
           {% get_object_navigation_links "secondary_menu" as object_navigation_links %}
           {% if object_navigation_links %}
-            <div class="block">
-              <h3>{% trans "Secondary menu" %}</h3>
-              <ul class="navigation list-unstyled">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3>{% trans "Secondary menu" %}</h3>
+              </div>
+              <div class="panel-body">
+                <ul class="navigation list-unstyled">
                 {% with 'true' as as_li %}
                   {% include 'generic_navigation.html' %}
                 {% endwith %}
               </ul>
+              </div>
             </div>
           {% endif %}
 
@@ -263,7 +266,8 @@
               {% copy_variable navigation_object_dict.object as "navigation_object_name" %}
               {% get_object_navigation_links as object_navigation_links %}
               {% if object_navigation_links %}
-                <div class="block">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
                   {% if navigation_object %}
                     {% if navigation_object_dict.name %}
                       <h3>{% blocktrans with navigation_object_dict.name as name %}Actions for {{ name }}: {{ navigation_object }}{% endblocktrans %}</h3>
@@ -273,11 +277,14 @@
                   {% else %}
                     <h3>{% trans 'Available actions' %}</h3>
                   {% endif %}
-                  <ul class="navigation list-unstyled">
-                    {% with 'true' as as_li %}
-                      {% include 'generic_navigation.html' %}
-                    {% endwith %}
-                  </ul>
+                  </div>
+                  <div class="panel-body">
+                    <ul class="navigation list-unstyled">
+                      {% with 'true' as as_li %}
+                        {% include 'generic_navigation.html' %}
+                      {% endwith %}
+                    </ul>
+                  </div>
                 </div>
               {% endif %}
               {% get_object_navigation_links "related" as object_navigation_links %}
