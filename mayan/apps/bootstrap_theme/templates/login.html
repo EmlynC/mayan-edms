@@ -15,6 +15,7 @@
 {#  {% endif %}#}
 {#{% endblock %}#}
 
+{% block container_class %}container{% endblock %}
 {% block html_title %}{% trans 'Login' %}{% endblock %}
 
 {% if not user.is_authenticated %}
@@ -50,6 +51,7 @@
         </div>
       </div>
     {% endif %}
+    <img class="center-block" src="{% static 'images/logo.png' %}" alt="Company Logo"/>
     <h2>{% block project_name %}{% project_name %}{% endblock %} <small>on Mayan EDMS</small></h2>
     <div class="panel panel-info">
       <div class="panel-heading">

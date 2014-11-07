@@ -39,7 +39,7 @@
 
 </head>
 <body>
-<div class="container-fluid">
+<div class="{% block container_class %}container-fluid{% endblock %} %}">
 
   {% block body_content %}
   {% endblock %}
