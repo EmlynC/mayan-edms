@@ -121,6 +121,10 @@ def convert_to_glyphicon(famfam):
         'page_save': 'download',
         'zoom_in': 'search',
         'lock': 'lock',
+        'folder_go': 'folder-open',
+        'folder_edit': 'pencil',
+        'folder_delete': 'minus',
+        'submit_icon_famfam': 'tick',
     }
 
     if famfam in mapper.keys():
