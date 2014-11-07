@@ -118,6 +118,7 @@ def convert_to_glyphicon(famfam):
         'page_paintbrush':'remove',
         'page_delete':'trash',
         'page_save': 'download',
+        'zoom_in': 'search',
     }
 
     if famfam in mapper.keys():
