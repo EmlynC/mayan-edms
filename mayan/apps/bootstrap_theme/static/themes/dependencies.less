@@ -8,7 +8,7 @@
 @import "../packages/bootstrap/less/type.less";
 @import "../packages/bootstrap/less/code.less";
 @import "../packages/bootstrap/less/grid.less";
-@import "../packages/bootstrap/less/tables.less";
+@import "../less/tables.less"; // vertical-align middle, deviate from stock
 @import "../packages/bootstrap/less/forms.less";
 @import "../packages/bootstrap/less/buttons.less";
 
@@ -66,15 +66,15 @@ img {
 }
 
 // toolbars all have a margin
-.btn-toobar {
+.btn-toolbar {
   padding-bottom: 20px;
 }
 
 // basic shape for a tag
 .tags {
+
   li {
       max-width: 7em;
-      max-height: 2.2em;
 
       padding: 5px;
 
@@ -83,4 +83,12 @@ img {
 
       overflow: hidden;
   }
+}
+
+.table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+td > .list-unstyled {
+  margin-bottom: 0px; // horizontal tag within table cells don't need a bottom margin
 }
