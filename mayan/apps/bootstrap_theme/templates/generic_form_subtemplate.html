@@ -78,17 +78,14 @@
         {% if not read_only %}
         <div class="btn-toolbar">
             <button class="btn btn-default" type="submit" name="{% if form.prefix %}{{ form.prefix }}-submit{% else %}submit{% endif %}">
-                {% if submit_icon_famfam %}
-                    <span class="famfam active famfam-{{ submit_icon_famfam|default:'tick' }}"></span>
-                {% else %}
-                    <img src="{{ STATIC_URL }}images/icons/tick.png" alt="{% if submit_label %}{{ submit_label }}{% else %}{% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}{% endif %}" />
-                {% endif %}
+                <span class="glyphicon glyphicon-ok"></span>
                 {% if submit_label %}{{ submit_label }}{% else %}{% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}{% endif %}
             </button>
 
               {% if previous %}
                   <a href="#header" onclick='{% if previous %}window.location.replace("{{ previous }}");{% else %}history.go(-1);{% endif %}' class="btn btn-default">
-                    <img src="{{ STATIC_URL }}images/icons/cross.png"  alt="{% if cancel_label %}{{ cancel_label }}{% else %}{% trans 'Cancel' %}{% endif %}"/> {% if cancel_label %}{{ cancel_label }}{% else %}{% trans 'Cancel' %}{% endif %}
+                    <span class="glyphicon glyphicon-remove"></span>
+                    {% if cancel_label %}{{ cancel_label }}{% else %}{% trans 'Cancel' %}{% endif %}
                   </a>
               {% endif %}
 
