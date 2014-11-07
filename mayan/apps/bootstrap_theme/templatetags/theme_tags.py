@@ -114,11 +114,13 @@ def convert_to_glyphicon(famfam):
         'hourglass_add': 'tasks',
         'tag_blue_add': 'plus',
         'tag_blue_delete': 'minus',
+        'tag_blue_edit': 'pencil',
         'folder_add': 'plus',
         'page_paintbrush':'remove',
         'page_delete':'trash',
         'page_save': 'download',
         'zoom_in': 'search',
+        'lock': 'lock',
     }
 
     if famfam in mapper.keys():
