@@ -4,10 +4,11 @@
 
 {% block main_content %}
     {% for key, value in blocks.items %}
-        <div class="content">
-        <h2 class="title">{{ value.title|capfirst }}</h2>
-        <div class="inner">
-        <p>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="title">{{ value.title|capfirst }}</h2>
+          </div>
+          <div class="panel-heading">
             <ul class="list-unstyled">
                 {% with value.links as object_navigation_links %}
                 {% with 'true' as as_li %}
@@ -15,8 +16,7 @@
                 {% endwith %}
                 {% endwith %}
             </ul>
-        </p>
-
-        </div></div>
+          </div>
+        </div>
     {% endfor %}
 {% endblock %}
