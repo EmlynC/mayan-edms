@@ -6,16 +6,19 @@
 {% load non_breakable %}
 {% load variable_tags %}
 {% load main_settings_tags %}
+{% load theme_tags %}
 
 {% get_main_setting 'DISABLE_ICONS' as disable_icons %}
 
 {% if side_bar %}
-    <div class="block">
-    <h3>
-        {{ title|capfirst }}
-    </h3>
-    <div class="content">
-        <p>
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>
+          {{ title|capfirst }}
+      </h3>
+    </div>
+    <div class="panel-content">
+      <p>
 {% else %}
     {% autopaginate object_list %}
     <div class="panel panel-default">
@@ -32,72 +35,75 @@
     <div class="panel-body">
 {% endif %}
 
-        {% if object_list %}
-            {% if multi_select or multi_select_as_buttons %}
-                {% if multi_select_as_buttons %}
-                    {% get_multi_item_links as multi_item_links %}
-                    <div class="btn-toolbar">
-                    {% for link in multi_item_links %}
-                        <button class="btn btn-default" type="submit" name="action" value="{{ link.url }}">
-                           {% if link.famfam and not disable_icons %}<span class="famfam active famfam-{{ link.famfam|default:'link' }}"></span>{% endif %}{{ link.text|capfirst }}
-                        </button>
-                    {% endfor %}
-                    </div>
-                {% else %}
-                    {% with 'true' as form_hide_required_text %}
-                        {% get_multi_item_links_form %}
-                    {% endwith %}
-                    <div class="btn-toolbar">
-                        <button class="btn btn-default" type="submit" name="{{ form.prefix }}-submit">
-                            <img src="{{ STATIC_URL }}images/icons/tick.png" alt="{% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}" /> {% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}
-                        </button>
-                    </div>
-                {% endif %}
-            {% endif %}
-        {% endif %}
-
-        {% if scrollable_content %}
-            <div style="border: 1px solid; height: {{ scrollable_content_height }}; overflow: auto;">
-        {% endif %}
-
-        <div class="btn-toolbar">
-            {% for object in object_list %}
-                {{ object }}
+{% if object_list %}
+    {% if multi_select or multi_select_as_buttons %}
+        {% if multi_select_as_buttons %}
+            {% get_multi_item_links as multi_item_links %}
+            <div class="row">
+            {% for link in multi_item_links %}
+              <div class="col-xs-6 col-md-3">
+                <button class="btn btn-default" type="submit" name="action" value="{{ link.url }}">
+                   {% if link.famfam and not disable_icons %}<span class="glyphicon glyphicon-{{ link.famfam|default:'link'|convert_to_glyphicon }}"></span>{% endif %}{{ link.text|capfirst }}
+                </button>
+              </div>
             {% endfor %}
-        </div>
-
-        {% if scrollable_content %}
+        {% else %}
+            {% with 'true' as form_hide_required_text %}
+                {% get_multi_item_links_form %}
+            {% endwith %}
+            <div class="row">
+                <button class="btn btn-default" type="submit" name="{{ form.prefix }}-submit">
+                    <img src="{{ STATIC_URL }}images/icons/tick.png" alt="{% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}" /> {% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}
+                </button>
             </div>
         {% endif %}
+    {% endif %}
+{% endif %}
 
-        {% if object_list %}
-            {% if multi_select or multi_select_as_buttons %}
-                {% if multi_select_as_buttons %}
-                    {% get_multi_item_links as multi_item_links %}
-                    <div class="btn-toolbar">
-                    {% for link in multi_item_links %}
-                        <button class="btn btn-default" type="submit" name="action" value="{{ link.url }}">
-                           {% if link.famfam and not disable_icons %}<span class="famfam active famfam-{{ link.famfam|default:'link' }}"></span>{% endif %}{{ link.text|capfirst }}
-                        </button>
-                    {% endfor %}
-                    </div>
-                {% else %}
-                    {% with 'true' as form_hide_required_text %}
-                        {% get_multi_item_links_form %}
-                    {% endwith %}
-                    <div class="btn-toolbar">
-                        <button class="btn btn-default" type="submit" name="{{ form.prefix }}-submit">
-                            <img src="{{ STATIC_URL }}images/icons/tick.png" alt="{% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}" /> {% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}
-                        </button>
-                    </div>
-                {% endif %}
-            {% endif %}
-        {% endif %}
-        </div>
-        {% paginate %}
+{% if scrollable_content %}
+    <div style="border: 1px solid; height: {{ scrollable_content_height }}; overflow: auto;">
+{% endif %}
 
-        {% if side_bar %}
-            </p>
+<div class="btn-toolbar">
+    {% for object in object_list %}
+        {{ object }}
+    {% endfor %}
+</div>
+
+{% if scrollable_content %}
+    </div>
+{% endif %}
+
+{% if object_list %}
+    {% if multi_select or multi_select_as_buttons %}
+        {% if multi_select_as_buttons %}
+            {% get_multi_item_links as multi_item_links %}
+            <div class="row">
+            {% for link in multi_item_links %}
+              <div class="col-xs-6 col-md-3">
+                <button class="btn btn-default" type="submit" name="action" value="{{ link.url }}">
+                   {% if link.famfam and not disable_icons %}<span class="glyphicon glyphicon-{{ link.famfam|default:'link'|convert_to_glyphicon }}"></span>{% endif %}{{ link.text|capfirst }}
+                </button>
+              </div>
+            {% endfor %}
+            </div>
+        {% else %}
+            {% with 'true' as form_hide_required_text %}
+                {% get_multi_item_links_form %}
+            {% endwith %}
+            <div class="row">
+                <button class="btn btn-default" type="submit" name="{{ form.prefix }}-submit">
+                    <img src="{{ STATIC_URL }}images/icons/tick.png" alt="{% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}" /> {% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}
+                </button>
+            </div>
         {% endif %}
+    {% endif %}
+{% endif %}
+</div>
+{% paginate %}
+
+{% if side_bar %}
+    </p>
+{% endif %}
     </div>
 </div>
