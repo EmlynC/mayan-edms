@@ -45,7 +45,7 @@
     {% if multi_select or multi_select_as_buttons %}
       {% if multi_select_as_buttons %}
         {% get_multi_item_links as multi_item_links %}
-        <div class="btn-toobar" role="toolbar" role="toolbar">
+        <div class="btn-toolbar" role="toolbar" role="toolbar">
           {% for link in multi_item_links %}
             <button class="btn btn-primary" type="submit" name="action"
                     value="{{ link.url }}">
@@ -59,7 +59,7 @@
         {% with 'true' as form_hide_required_text %}
           {% get_multi_item_links_form %}
         {% endwith %}
-        <div class="btn-toobar" role="toolbar">
+        <div class="btn-toolbar" role="toolbar">
           <button class="btn btn-primary" type="submit"
                   name="{{ form.prefix }}-submit">
             <img src="{{ STATIC_URL }}images/icons/tick.png" alt="
@@ -186,7 +186,7 @@
     {% if multi_select or multi_select_as_buttons %}
       {% if multi_select_as_buttons %}
         {% get_multi_item_links as multi_item_links %}
-        <div class="btn-toobar" role="toolbar">
+        <div class="btn-toolbar" role="toolbar">
           {% for link in multi_item_links %}
             <button class="btn btn-primary" type="submit" name="action"
                     value="{{ link.url }}">
@@ -200,7 +200,7 @@
         {% with 'true' as form_hide_required_text %}
           {% get_multi_item_links_form %}
         {% endwith %}
-        <div class="btn-toobar" role="toolbar">
+        <div class="btn-toolbar" role="toolbar">
           <button class="btn btn-primary" type="submit"
                   name="{{ form.prefix }}-submit">
             <img src="{{ STATIC_URL }}images/icons/tick.png" alt="
