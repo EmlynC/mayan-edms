@@ -73,6 +73,11 @@ img {
 // toolbars all have a margin
 .btn-toolbar {
   padding-bottom: 20px;
+  margin-left: 0px;
+
+  button {
+    margin-bottom: 5px;
+  }
 }
 
 // align all td in the middle
@@ -86,19 +91,20 @@ td > .list-unstyled {
 
 // tag styling
 .mixin-tag-style(@color) {
-    max-width: 7em;
+    display: inline-block;
+    min-width: 7em;
 
-    padding: 5px;
+    padding: 8px;
 
-    background: lighten(@color, 30%);
-    border: 1px solid darken(@color, 10%);
+    background: lighten(@color, 20%);
+    border: 2px solid darken(@color, 10%);
     border-radius: 25px;
 
     overflow: hidden;
 }
 
 .coral-tag {
-  .mixin-tag-style(#FC5532)
+  .mixin-tag-style(coral)
 }
 
 .red-tag {
