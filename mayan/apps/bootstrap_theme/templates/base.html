@@ -399,9 +399,9 @@
               },
             ]);
           }
-        })
+        });
         e.preventDefault();
-      })
+      });
 
       $("a.fancybox-noscaling").fancybox({
         openEffect  : 'elastic',
@@ -440,7 +440,7 @@
       }
 
       function load_document_image(image) {
-        $.get( image.attr('data-src'), function( result ) {
+        $.get(image.attr('data-src'), function( result ) {
           if (result.status == 'success') {
             image.attr('src', result.data);
           } else if (result.detail == 'unknown_file_format') {
@@ -460,7 +460,7 @@
       $('img.lazy-load').lazyload({
         appear: function(elements_left, settings) {
           load_document_image($(this));
-        },
+        }
       });
 
       $('img.lazy-load-carousel').lazyload({
