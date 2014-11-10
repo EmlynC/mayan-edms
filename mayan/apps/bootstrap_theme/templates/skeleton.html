@@ -28,10 +28,11 @@
   {% endif %}
 
   {# ... override for individual page styles #}
-  {% block styles %}
+  {% block stylesheets %}
   {% endblock %}
 
   {# JavaScript #}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
   {# ... override for individual page scripts #}
   {% block javascript_head %}
@@ -39,7 +40,7 @@
 
 </head>
 <body>
-<div class="{% block container_class %}container-fluid{% endblock %} %}">
+<div class="{% block container_class %}container-fluid{% endblock %}">
 
   {% block body_content %}
   {% endblock %}
@@ -52,14 +53,12 @@
 
 </div>
 
-{# ... jQuery and plugins #}
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
-
-{#<script type="text/javascript" src="{% static '/packages/jquery.scrollview.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static '/packages/jquery_lazyload-master/jquery.lazyload.min.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static '/packages/jquery.scrollstop.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static '/packages/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static '/packages/fancyapps-fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js' %}"></script>#}
+{# ... jQuery plugins #}
+<script type="text/javascript" src="{% static 'packages/jquery.scrollview.js' %}"></script>
+<script type="text/javascript" src="{% static 'packages/jquery_lazyload-master/jquery.lazyload.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'packages/jquery.scrollstop.js' %}"></script>
+<script type="text/javascript" src="{% static 'packages/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js' %}"></script>
+<script type="text/javascript" src="{% static 'packages/fancyapps-fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js' %}"></script>
 
 {# ... twitter bootstrap #}
 {% bootstrap_javascript %}
