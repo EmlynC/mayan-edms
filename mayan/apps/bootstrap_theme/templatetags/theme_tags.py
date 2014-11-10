@@ -92,6 +92,8 @@ def convert_to_glyphicon(famfam):
         return ''
 
     mapper = {
+        'add':              'plus',
+        'delete':           'remove',
         'basket':           'shopping-cart',
         'book_go':          'book',
         'camera_delete':    'camera',
@@ -132,10 +134,13 @@ def convert_to_glyphicon(famfam):
         'page_world':       'globe',
         'printer':          'print',
         'script':           'book',
-        'signature':        'barcode',
+        'text_signature':   'barcode',
         'tab':              'credit-card',
         'table':            'th',
         'table_add':        'plus',
+        'table_edit':       'pencil',
+        'table_link':       'link',
+        'table_delete':     'remove',
         'tag_blue':         'tags',
         'tag_blue_add':     'plus',
         'tag_blue_delete':  'minus',
