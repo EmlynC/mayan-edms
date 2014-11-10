@@ -1,13 +1,71 @@
 {% load i18n %}
-{% load bootstrap3 %}
 
-<div class="panel panel-default">
+<div class="panel panel-default {{ grid }}">
   <div class="panel-heading">
     <h2>{% include 'calculate_form_title.html' %}</h2>
   </div>
   <div class="panel-body">
 
-    {% bootstrap_form form %}
+    {% if form.is_multipart %}
+        <form name="{{ form.prefix }}" enctype="multipart/form-data" method="{{ submit_method|default:'post' }}" action="{{ form_action }}" class="form">
+    {% else %}
+        <form name="{{ form.prefix }}" method="{{ submit_method|default:'post' }}" action="{{ form_action }}" class="form">
+    {% endif %}
 
-  </div>
-</div>
+        {{ wizard.management_form }}
+
+        {% if step_field %}
+            <input type="hidden" name="{{ step_field }}" value="{{ step0 }}" />
+        {% endif %}
+
+        {% if submit_method != 'GET' and submit_method != 'get' %}
+            {% csrf_token %}
+        {% endif %}
+
+        {% if next %}
+            <input name="next" type="hidden" value="{{ next }}" />
+        {% endif %}
+
+        {% if previous %}
+            <input name="previous" type="hidden" value="{{ previous }}" />
+        {% endif %}
+
+        {% for hidden_field in hidden_fields %}
+           {{ hidden_field.as_hidden }}
+        {% endfor %}
+
+        {% if form.management_form %}
+            {% with form as formset %}
+                {{ formset.management_form }}
+
+                {% for form in formset.forms %}
+                    {% include 'generic_form_instance.html' %}
+                {% endfor %}
+
+            {% endwith %}
+        {% else %}
+            {% include 'generic_form_instance.html' %}
+        {% endif %}
+        {% if not read_only %}
+
+          <button class="btn btn-primary" type="submit" name="{% if form.prefix %}{{ form.prefix }}-submit{% else %}submit{% endif %}">
+              {% if submit_icon_famfam %}
+                  <span class="glyphicon glpyhicon-ok"></span>
+              {% else %}
+                  <span class="glyphicon glpyhicon-ok"></span>
+              {% endif %}
+              {% if submit_label %}{{ submit_label }}{% else %}{% if object %}{% trans 'Save' %}{% else %}{% trans 'Submit' %}{% endif %}{% endif %}
+          </button>
+
+            {% if previous %}
+                <a href="#header" onclick='{% if previous %}window.location.replace("{{ previous }}");{% else %}history.go(-1);{% endif %}' class="btn btn-primary">
+                  <span class="glyphicon glpyhicon-remove"></span>
+                </a>
+            {% endif %}
+        {% endif %}
+    </form>
+    {% if side_bar %}
+        </div></div>
+    {% else %}
+        </div></div>
+    {% endif %}
