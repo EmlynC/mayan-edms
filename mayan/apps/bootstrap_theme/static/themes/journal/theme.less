@@ -1,0 +1,68 @@
+//
+// Load core variables and mixins
+// --------------------------------------------------
+@import "../../packages/bootstrap/less/variables.less";
+@import "variables.less"; // your own variables file, overrides the variables above
+
+@import "../../packages/bootstrap/less/mixins.less";
+
+// load the theme
+@import "bootswatch.less";
+
+// Mayan EDMS additionals
+
+// Glyphicons
+.glyphicon {
+  &::before {
+    left: -4px;
+    position: relative;
+    padding-left: 4px;
+  }
+}
+
+// Images responsive by default
+img {
+    display: block;
+    width: 100% \9; // IE 9 hack
+    max-width: 100%;
+    height: auto;
+}
+
+// ... except for images in the button grids!
+.btn-grid {
+  display: inline;
+}
+
+// toolbars all have a margin
+.btn-toolbar {
+  padding-bottom: 20px;
+}
+
+// basic shape for a tag
+.tags {
+
+  li {
+      max-width: 7em;
+
+      padding: 5px;
+
+      border: 1px solid #808080;
+      border-radius: 25px;
+
+      overflow: hidden;
+  }
+}
+
+// align all td in the middle
+.table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+td > .list-unstyled {
+  margin-bottom: 0px; // horizontal tag within table cells don't need a bottom margin
+}
+
+// MUST BE AT THE END!
+// Appends all the other dependencies and relies on the mixins and variables
+// defined above.
+@import "../dependencies.less";
