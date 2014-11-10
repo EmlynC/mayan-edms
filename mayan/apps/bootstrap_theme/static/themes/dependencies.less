@@ -75,21 +75,6 @@ img {
   padding-bottom: 20px;
 }
 
-// basic shape for a tag
-.tags {
-
-  li {
-      max-width: 7em;
-
-      padding: 5px;
-
-      border: 1px solid #808080;
-      border-radius: 25px;
-
-      overflow: hidden;
-  }
-}
-
 // align all td in the middle
 .table > tfoot > tr > td {
   vertical-align: middle;
@@ -97,4 +82,53 @@ img {
 
 td > .list-unstyled {
   margin-bottom: 0px; // horizontal tag within table cells don't need a bottom margin
+}
+
+// tag styling
+.mixin-tag-style(@color) {
+    max-width: 7em;
+
+    padding: 5px;
+
+    background: lighten(@color, 30%);
+    border: 1px solid darken(@color, 10%);
+    border-radius: 25px;
+
+    overflow: hidden;
+}
+
+.coral-tag {
+  .mixin-tag-style(#FC5532)
+}
+
+.red-tag {
+  .mixin-tag-style(red)
+}
+
+.blue-tag {
+  .mixin-tag-style(blue)
+}
+
+.cyan-tag {
+  .mixin-tag-style(cyan)
+}
+
+.green-tag {
+  .mixin-tag-style(green)
+}
+
+.khaki-tag {
+  .mixin-tag-style(khaki)
+}
+
+.lightgrey-tag {
+  .mixin-tag-style(lightgrey)
+}
+
+.magenta-tag {
+  .mixin-tag-style(magenta)
+}
+
+.yellow-tag {
+  .mixin-tag-style(yellow)
 }
