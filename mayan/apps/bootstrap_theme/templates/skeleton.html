@@ -19,13 +19,11 @@
   {% endblock %}
 
   {# CSS #}
-  {% if debug %}
-    <link rel="stylesheet/less" type="text/css" href="{% static 'themes/cosmo/theme.less' %}" />
-  {% else %}
-    {% compress css %}
-    <link rel="stylesheet/less" type="text/less" media="all" href="{% static '/themes/cosmo/theme.less' %}" />
-    {% endcompress %}
-  {% endif %}
+
+  {# Remove compress tag to load manually #}
+  {% compress css %}
+  <link rel="stylesheet" type="text/less" media="all" href="{{ STATIC_URL }}themes/cosmo/theme.less" />
+  {% endcompress %}
 
   {# ... override for individual page styles #}
   {% block stylesheets %}
