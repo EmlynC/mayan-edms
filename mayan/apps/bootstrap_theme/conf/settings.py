@@ -9,8 +9,8 @@ register_settings(
         {
             'name': u'THEME',
             'global_name': u'BOOTSTRAP_THEME',
-            'default': u'bootstrap',
-            'description': _(u'CSS theme to apply, options: Bootstrap')
+            'default': u'cosmo',
+            'description': _(u'CSS theme to apply, options: Default, Cosmo, Flatly, Journal')
         },
         {
              'name': u'ENABLE_SCROLL_JS',
