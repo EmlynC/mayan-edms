@@ -22,7 +22,7 @@
 
   {# Remove compress tag to load manually #}
   {% compress css %}
-  <link rel="stylesheet" type="text/less" media="all" href="{{ STATIC_URL }}themes/cosmo/theme.less" />
+  <link rel="stylesheet" type="text/less" media="all" href="{{ STATIC_URL }}themes/{{ bootstrap_theme }}/theme.less" />
   {% endcompress %}
 
   {# ... override for individual page styles #}
