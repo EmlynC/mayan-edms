@@ -482,6 +482,26 @@ Default: ``True``
 Display extra information in the login screen.
 
 
+Bootstrap theme
+===============
+
+.. setting:: BOOTSTRAP_THEME
+
+**BOOTSTRAP_THEME**
+
+Default: ``cosmo``
+
+CSS theme to apply, options are: ``default``, ``cosmo``, ``flatly`` and ``journal``
+
+.. setting:: BOOTSTRAP_VERBOSE_LOGIN
+
+**BOOTSTRAP_VERBOSE_LOGIN**
+
+Default: ``True``
+
+Display extra information in the login screen.
+
+
 Main
 ====
 
