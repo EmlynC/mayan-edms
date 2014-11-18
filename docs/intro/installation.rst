@@ -19,7 +19,7 @@ Initialize a ``virtualenv`` to deploy the project:
 
 .. code-block:: bash
 
-    $ virtualenv venv
+    $ virtualenv venvg
     $ source venv/bin/activate
     $ pip install mayan-edms
 
