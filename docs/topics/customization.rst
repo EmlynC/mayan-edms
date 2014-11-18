@@ -59,8 +59,17 @@ people without the menu icons, for this **Mayan EDMS** provides the
 Twitter Bootstrap
 -----------------
 
-**Mayan EDMS** can use the popular Twitter Bootstrap theme instead. First,
-add ``bootstrap_theme`` to installed applications ...
+**Mayan EDMS** can use the popular Twitter Bootstrap theme instead. It makes
+use of the excellent `django-bootstrap3 <https://github.com/dyve/django-bootstrap3>`_
+app.
+
+.. image:: ../_static/bootstrap_theme.png
+ :alt: bootstrap themes
+
+Installation
+~~~~~~~~~~~~
+
+Add ``bootstrap3`` and ``bootstrap_theme`` to installed applications ...
 
 .. code-block:: python
 
@@ -84,7 +93,5 @@ add ``bootstrap_theme`` to installed applications ...
 
     # 'web_theme',
 
-By default, the system will use the 'Cosmo' theme from `bootswatch.com
-
-.. image:: ../_static/themes.png
- :alt: themes
+By default, the system will use the 'Cosmo' theme from `bootswatch.com <bootswatch.com>`_ but you can
+select a different theme by setting the :setting:`BOOTSTRAP_THEME` variable in the settings.
