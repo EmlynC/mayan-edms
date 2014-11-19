@@ -45,8 +45,8 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.staticfiles',
     # Bootstrap theme
-    #'bootstrap3',
-    #'bootstrap_theme',
+    'bootstrap3',
+    'bootstrap_theme',
     # 3rd party
     'south',
     'rest_framework_swagger',
@@ -64,7 +64,6 @@ INSTALLED_APPS = (
     'smart_settings',
     'navigation',
     'lock_manager',
-    'web_theme',
     # pagination needs to go after web_theme so that the pagination template
     # if found
     'pagination',
@@ -214,11 +213,11 @@ STATICFILES_FINDERS = (
 # --------- Django compressor -------------
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
-COMPRESS_ENABLED = False  # True needed for Bootstrap
+COMPRESS_ENABLED = True  # needed for bootstrap_theme
 
-# COMPRESS_PRECOMPILERS = (
-#    ('text/less', 'lessc {infile} {outfile}'),
-# )
+COMPRESS_PRECOMPILERS = (
+   ('text/less', 'lessc {infile} {outfile}'),
+)
 
 # ---------- Django sendfile --------------
 SENDFILE_BACKEND = 'sendfile.backends.simple'
