@@ -9,11 +9,11 @@ Ubuntu, Debian or Fedora server
 
 If using a Debian_ or Ubuntu_ based Linux distribution getting the executable requirements is as easy as::
 
-    $ sudo apt-get install python-dev gcc tesseract-ocr unpaper python-virtualenv ghostscript libjpeg-dev libpng-dev poppler-utils -y
+    $ sudo apt-get install python-dev gcc tesseract-ocr unpaper python-virtualenv ghostscript libjpeg-dev libpng-dev poppler-utils node-less -y
 
 If using a Fedora_ based Linux distribution get the executable requirements using Yum::
 
-    $ sudo yum install -y git gcc tesseract unpaper python-virtualenv ghostscript libjpeg-turbo-devel libpng-devel poppler-util python-devel
+    $ sudo yum install -y git gcc tesseract unpaper python-virtualenv ghostscript libjpeg-turbo-devel libpng-devel poppler-util python-devel node-less
 
 Initialize a ``virtualenv`` to deploy the project:
 
@@ -48,7 +48,16 @@ With MacPorts installed run the command:
 
 .. code-block:: bash
 
-    sudo port install python-dev gcc tesseract-ocr unpaper python-virtualenv ghostscript libjpeg-dev libpng-dev poppler-utils
+    sudo port install python-dev gcc tesseract-ocr unpaper python-virtualenv ghostscript libjpeg-dev libpng-dev poppler-utils nodejs
+
+
+In development, the `lessc` compiler is required to compile the Twitter
+Bootstrap less files to CSS. You can install less using the node package
+manager.
+
+.. code-block:: bash
+
+    npm install -g less
 
 **Mayan EDMS** can use either Pillow, ImageMagick or GraphicsMagick as the backend to
 convert images so in addition you can install GraphicsMagick ...
